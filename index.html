@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم درخواست مشاوره | محمدرضا رضائی</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFFAF2;
+            --cream-dark: #F5F0E8;
+            --navy: #1F2849;
+            --navy-light: #2d3a5e;
+            --gold: #C4A270;
+            --gold-light: #d4b896;
+            --white: #FFFFFF;
+            --text: #2c3e50;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--cream);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Name Section */
+        .name-section {
+            text-align: center;
+            padding: 50px 20px 30px;
+            background-color: var(--cream);
+        }
+
+        .header-name {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--navy);
+            letter-spacing: 2px;
+        }
+
+        /* Full Width Image */
+        .header-image-container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+            margin: 0;
+        }
+
+        /* Page Title */
+        .page-title-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--cream-dark);
+        }
+
+        .page-title {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        .form-wrapper {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 10px 40px rgba(31, 40, 73, 0.08);
+        }
+
+        .section-title {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 35px 0 22px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: "◆";
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .required::after {
+            content: " *";
+            color: #c0392b;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 16px 18px;
+            background-color: var(--cream);
+            border: 1px solid #e0d5c7;
+            border-radius: 12px;
+            color: var(--navy);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(196, 162, 112, 0.1);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #999;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            flex: 1;
+            min-width: 140px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .radio-label,
+        .checkbox-label {
+            display: block;
+            padding: 14px 18px;
+            background-color: var(--cream);
+            border: 1px solid #e0d5c7;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            color: var(--navy);
+        }
+
+        input[type="radio"]:checked + .radio-label,
+        input[type="checkbox"]:checked + .checkbox-label {
+            background-color: var(--navy);
+            color: var(--gold);
+            border-color: var(--navy);
+            font-weight: 700;
+        }
+
+        .radio-label:hover,
+        .checkbox-label:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            margin-top: 35px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--gold);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            font-family: 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(31, 40, 73, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(31, 40, 73, 0.3);
+        }
+
+        /* Price Section */
+        .price-section {
+            background-color: var(--cream-dark);
+            border-top: 1px solid #e0d5c7;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background-color: var(--navy);
+            margin-top: 60px;
+            padding: 60px 20px;
+        }
+
+        .footer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-box {
+            background-color: rgba(255, 250, 242, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(196, 162, 112, 0.2);
+        }
+
+        .footer-title {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-list {
+            list-style: none;
+        }
+
+        .footer-list li {
+            padding: 10px 0;
+            color: var(--cream);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(196, 162, 112, 0.1);
+        }
+
+        .footer-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 18px 0;
+            color: var(--cream);
+            font-size: 0.95rem;
+        }
+
+        .icon {
+            width: 42px;
+            height: 42px;
+            background-color: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(196, 162, 112, 0.15);
+            color: rgba(255, 250, 242, 0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: rgba(39, 174, 96, 0.1);
+            border: 1px solid #27ae60;
+            color: #27ae60;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: var(--navy);
+            margin-top: 20px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(31, 40, 73, 0.1);
+            border-top: 3px solid var(--navy);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-name {
+                font-size: 2rem;
+            }
+            
+            .page-title {
+                font-size: 1.4rem;
+            }
+            
+            .form-wrapper {
+                padding: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .radio-group,
+            .checkbox-group {
+                flex-direction: column;
+            }
+            
+            .radio-item,
+            .checkbox-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Name Section -->
+    <div class="name-section">
+        <h1 class="header-name">محمدرضا رضائی</h1>
+    </div>
+
+    <!-- Full Width Image -->
+    <div class="header-image-container">
+        <img src="https://s8.uupload.ir/files/picsart_26-02-12_03-20-42-115_v5uf.jpg" alt="محمدرضا رضائی" class="header-image">
+    </div>
+
+    <!-- Page Title -->
+    <div class="page-title-section">
+        <h2 class="page-title">فرم درخواست مشاوره</h2>
+        <p class="page-subtitle">لطفاً فرم زیر را با دقت تکمیل کنید</p>
+    </div>
+
+    <!-- Main Form Container -->
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="success-message" id="successMessage">
+                درخواست مشاوره شما با موفقیت ثبت شد. به زودی با شما تماس خواهیم گرفت.
+            </div>
+
+            <form id="consultForm" action="https://formspree.io/f/xqedevkn" method="POST">
+                
+                <!-- Section 1: Personal Info -->
+                <h3 class="section-title">اطلاعات فردی</h3>
+
+                <div class="form-group">
+                    <label for="fullname" class="required">نام و نام خانوادگی</label>
+                    <input type="text" id="fullname" name="fullname" required placeholder="نام کامل خود را وارد کنید">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="required">شماره ارتباطی</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="مثال: 09123456789">
+                </div>
+
+                <div class="form-group">
+                    <label for="city" class="required">شهر محل سکونت</label>
+                    <input type="text" id="city" name="city" required placeholder="نام شهر">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">آدرس ایمیل (اختیاری)</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="instagram">آیدی اینستاگرام</label>
+                    <input type="text" id="instagram" name="instagram" placeholder="@username">
+                </div>
+
+                <div class="form-group">
+                    <label for="website">آدرس سایت</label>
+                    <input type="url" id="website" name="website" placeholder="https://www.example.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="required">نوع جلسه مشاوره</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="phone-call" name="session_type" value="تلفنی" required>
+                            <label for="phone-call" class="radio-label">تلفنی</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="video-call" name="session_type" value="تصویری">
+                            <label for="video-call" class="radio-label">تصویری</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="in-person" name="session_type" value="حضوری">
+                            <label for="in-person" class="radio-label">حضوری</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Business Info -->
+                <h3 class="section-title">اطلاعات کسب و کار</h3>
+
+                <div class="form-group">
+                    <label for="business-field" class="required">حوزه فعالیت</label>
+                    <input type="text" id="business-field" name="business_field" required placeholder="مثال: فروشگاه آنلاین پوشاک">
+                </div>
+
+                <div class="form-group">
+                    <label class="required">مدت زمان فعالیت</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="under-5" name="experience" value="زیر ۵ سال" required>
+                            <label for="under-5" class="radio-label">زیر ۵ سال</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="over-5" name="experience" value="بیشتر از ۵ سال">
+                            <label for="over-5" class="radio-label">بیشتر از ۵ سال</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">میزان درآمد ماهانه</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="income-1" name="income" value="۵۰ تا ۱۰۰ میلیون تومان" required>
+                            <label for="income-1" class="radio-label">۵۰ تا ۱۰۰ میلیون</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="income-2" name="income" value="۱۰۰ تا ۲۰۰ میلیون تومان">
+                            <label for="income-2" class="radio-label">۱۰۰ تا ۲۰۰ میلیون</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="income-3" name="income" value="۲۰۰ تا ۴۰۰ میلیون تومان">
+                            <label for="income-3" class="radio-label">۲۰۰ تا ۴۰۰ میلیون</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="income-4" name="income" value="بیش از ۴۰۰ میلیون تومان">
+                            <label for="income-4" class="radio-label">+۴۰۰ میلیون</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Consultation Subject -->
+                <h3 class="section-title">موضوع مشاوره</h3>
+
+                <div class="form-group">
+                    <label>موضوعات مورد نظر (چند گزینه می‌توانید انتخاب کنید)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="content" name="topics" value="تولید محتوا">
+                            <label for="content" class="checkbox-label">تولید محتوا</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="web-design" name="topics" value="طراحی وبسایت">
+                            <label for="web-design" class="checkbox-label">طراحی وبسایت</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="branding" name="topics" value="پرسونال برندینگ">
+                            <label for="branding" class="checkbox-label">پرسونال برندینگ</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strategy" name="topics" value="استراتژی بازاریابی">
+                            <label for="strategy" class="checkbox-label">استراتژی بازاریابی</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="other" name="topics" value="سایر">
+                            <label for="other" class="checkbox-label">سایر</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="required">شرح درخواست</label>
+                    <textarea id="description" name="description" required placeholder="لطفاً توضیح دهید برای رفع چه مسئله‌ای یا رسیدن به چه هدفی نیاز به مشاوره دارید..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    ثبت درخواست مشاوره
+                </button>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    در حال ارسال...
+                </div>
+            </form>
+
+            <!-- Price Section -->
+            <div class="price-section">
+                <div class="price-label">وجه یک جلسه ۶۰ دقیقه‌ای مشاوره کسب و کار</div>
+                <div class="price-amount">۳,۰۰۰,۰۰۰ تومان</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <!-- What to Expect -->
+            <div class="footer-box">
+                <h3 class="footer-title">
+                    <span>◆</span>
+                    آنچه در جلسه مشاوره دریافت می‌کنید
+                </h3>
+                <ul class="footer-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        ارائه ایده و پاسخ به سوالات
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        پشتیبانی لازم بعد از جلسه
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        ارائه برنامه و ایده‌های اجرایی
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-box">
+                <h3 class="footer-title">
+                    <span>◆</span>
+                    اطلاعات تماس
+                </h3>
+                
+                <div class="contact-item">
+                    <div class="icon">ت</div>
+                    <div>
+                        <div style="font-size: 0.8rem; opacity: 0.7;">شماره ارتباطی</div>
+                        <div style="font-weight: 700; font-size: 1.1rem;">۰۹۳۳۰۱۷۱۹۱۸</div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">م</div>
+                    <div>
+                        <div style="font-size: 0.8rem; opacity: 0.7;">آدرس</div>
+                        <div>ایران، ارومیه</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © ۱۴۰۴ تمامی حقوق محفوظ است | محمدرضا رضائی
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('consultForm');
+        const successMessage = document.getElementById('successMessage');
+        const loading = document.getElementById('loading');
+        const submitBtn = document.querySelector('.submit-btn');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            loading.style.display = 'block';
+            submitBtn.style.display = 'none';
+            
+            const checkboxes = document.querySelectorAll('input[name="topics"]:checked');
+            const topics = Array.from(checkboxes).map(cb => cb.value).join(', ');
+            
+            const formData = new FormData(form);
+            formData.append('selected_topics', topics);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                alert('متأسفانه خطایی رخ داد. لطفاً دوباره تلاش کنید.');
+                submitBtn.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+
+        document.getElementById('phone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+
+</body>
+</html>
